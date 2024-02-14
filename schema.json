@@ -1,0 +1,111 @@
+{
+  "user": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "phone": "+1234567890",
+    "password": "hashed_password",
+    "avatar": "https://example.com/avatar.png",
+    "location": "New York",
+    "isAccountVerified": false,
+    "tokens": [
+      {
+        "accessToken": "access_token_123",
+        "refreshToken": "refresh_token_456"
+      }
+    ],
+    "accountType": "Family",
+    "birthDate": "1990-01-01",
+    "workType": "Full time",
+    "role": "Partner",
+    "interests": ["Cooking", "Gardening", "Reading"],
+    "noticedInterests": ["Cooking", "Reading"],
+    "homeAreas": ["Kitchen", "Living Room"]
+  },
+  "invitations": [
+    {
+      "from": "user_id_1",
+      "to": "user_id_2",
+      "type": "partner"
+    }
+  ],
+  "questionnaires": [
+    {
+      "question": "What is your favorite hobby?",
+      "answer": "A",
+      "type": "singlechoice",
+      "answers": [
+        {
+          "identifier": "A",
+          "answer": "Cooking"
+        },
+        {
+          "identifier": "B",
+          "answer": "Gardening"
+        },
+        {
+          "identifier": "C",
+          "answer": "Reading"
+        },
+        {
+          "identifier": "D",
+          "answer": "Sports"
+        }
+      ]
+    }
+  ],
+  "notifications": [
+    {
+      "message": "You have a scheduled meeting with your partner on July 31st at 3:00 PM."
+    },
+    {
+      "message": "Don't forget to update your daily recaps."
+    }
+  ],
+  "families": [
+    {
+      "name": "Smith Family",
+      "members": ["user_id_1", "user_id_2"]
+    }
+  ],
+  "tasks": [
+    {
+      "title": "Cook dinner",
+      "category": "Cooking",
+      "completed": true
+    },
+    {
+      "title": "Water the plants",
+      "category": "Gardening",
+      "completed": false
+    },
+    {
+      "title": "Read a book",
+      "category": "Reading",
+      "completed": true
+    }
+  ],
+  "balancingActs": [
+    {
+      "task": "Cook dinner",
+      "recommendedBrands": ["Brand A", "Brand B", "Brand C"]
+    },
+    {
+      "task": "Water the plants",
+      "recommendedBrands": ["Brand D", "Brand E"]
+    },
+    {
+      "task": "Read a book",
+      "recommendedBrands": ["Brand F"]
+    }
+  ],
+  "scheduleAdjustments": [
+    {
+      "date": "2023-07-31",
+      "time": "15:00",
+      "partnerId": "user_id_2",
+      "location": "Coffee Shop",
+      "status": "Scheduled"
+    }
+  ]
+}
