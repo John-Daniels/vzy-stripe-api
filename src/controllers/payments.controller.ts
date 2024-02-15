@@ -3,10 +3,12 @@ import { catchAsync } from "@/utils/errors";
 import respond from "@/utils/respond";
 import { Request, Response } from "express";
 
-export const paymentWebhook = async (req: Request, res: Response) => {
-  await PaymentService.setupWebhook(req);
-  respond(res, 200, "recieved");
-};
+export const paymentWebhook = catchAsync(
+  async (req: Request, res: Response) => {
+    await PaymentService.setupWebhook(req);
+    respond(res, 200, "recieved");
+  }
+);
 
 export const subscribe = catchAsync(async (req, res) => {
   const session = await PaymentService.generateCheckoutLink(req);
