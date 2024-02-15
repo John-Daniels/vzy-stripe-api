@@ -26,6 +26,7 @@
 - Cloudinary
 - Nodemailer
 - Docker
+- NGINX
 
 ## For **dev**
 
@@ -56,3 +57,11 @@ yarn
 ```bash
 yarn dev
 ```
+
+## Using Docker
+
+```bash
+make dev-start
+```
+
+> Check the Makefile for more commands
