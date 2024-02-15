@@ -70,6 +70,8 @@ class PaymentRepository {
 
     // Successfully constructed event
     // console.log("✅ Success:", event.id);
+    console.log("body>>", req.body);
+    console.log("event>>", event);
     if (event.type === "payment_intent.succeeded") {
       const data = event.data.object;
       const { userId } = data.metadata;
