@@ -65,7 +65,7 @@ class PaymentRepository {
         throw new CustomError(`Webhook Error: ${err.message}`, 400);
       }
     } else {
-      event = req.body.data;
+      event = req.body;
     }
 
     // Successfully constructed event
