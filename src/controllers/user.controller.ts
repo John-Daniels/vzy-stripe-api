@@ -73,10 +73,10 @@ export const deleteUser = async (req: any, res: any) => {
 };
 
 // users/auth/refresh?token={refreshToken}
-export const refreshUserByToken = async (req, res) => {
+export const refreshUserByToken = catchAsync(async (req, res) => {
   const refreshedUser = await UserService.refreshUserByToken(req);
   respond(res, 200, "successfully refreshed your token!", refreshedUser);
-};
+});
 
 // profilePic
 export const uploadUserprofilePic = catchAsync(async (req, res) => {

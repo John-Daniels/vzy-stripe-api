@@ -1,4 +1,4 @@
-import PaymentService from "@/services/users/payment.service";
+import PaymentService from "@/services/payments/payment.service";
 import { catchAsync } from "@/utils/errors";
 import respond from "@/utils/respond";
 import { Request, Response } from "express";

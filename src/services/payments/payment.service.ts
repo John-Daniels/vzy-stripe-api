@@ -2,8 +2,7 @@ import ENV from "@/constants/env.constant";
 import { CustomError, getSuccessLink } from "@/utils";
 import { Request } from "express";
 import Stripe from "stripe";
-import UserService from "./users.service";
-import { NODE_ENV } from "@/constants";
+import UserService from "../users/users.service";
 
 class PaymentRepository {
   stripe: Stripe = null as any;
