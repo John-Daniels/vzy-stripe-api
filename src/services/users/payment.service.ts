@@ -3,6 +3,7 @@ import { CustomError, getSuccessLink } from "@/utils";
 import { Request } from "express";
 import Stripe from "stripe";
 import UserService from "./users.service";
+import { NODE_ENV } from "@/constants";
 
 class PaymentRepository {
   stripe: Stripe = null as any;
@@ -51,7 +52,7 @@ class PaymentRepository {
 
     const webhookSecret: string = ENV.STRIPE_WEBHOOK_SECRET;
 
-    if (webhookSecret) {
+    if (webhookSecret && ENV.NODE_ENV === NODE_ENV.dev) {
       try {
         event = this.stripe.webhooks.constructEvent(
           req.body,
