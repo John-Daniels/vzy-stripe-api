@@ -4,7 +4,7 @@
 
 > https://documenter.getpostman.com/view/29881481/2sA2r6XPfd
 
-## Features
+## Tasks
 
 #### Task 1: Build API Endpoints
 
@@ -27,6 +27,13 @@
 - Nodemailer
 - Docker
 - NGINX
+
+## Achitecture
+
+I this project i made use of clean achitecture
+
+`Application layer (REST)` -> `Domain Layer (Repositories)` -> `Data Layer (Mongodb)`
+Which then encourages easy error handling, mock testing, and refactoring of code
 
 ## For **dev**
 
