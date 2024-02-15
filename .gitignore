@@ -4,4 +4,4 @@ dist/
 .env
 *.pem
 # this is on my local computer...
-.env.Example
+# .env.Example
