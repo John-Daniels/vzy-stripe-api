@@ -1,6 +1,4 @@
-export const generateOTP = () => {
-  return Math.floor(1000 + Math.random() * 9000);
-};
+import { Request } from "express";
 
 export class CustomError extends Error {
   /**
@@ -17,29 +15,5 @@ export class CustomError extends Error {
   }
 }
 
-export function getStartOfMonth() {
-  const currentDate = new Date();
-  return new Date(
-    currentDate.getFullYear(),
-    currentDate.getMonth(),
-    1,
-    0,
-    0,
-    0,
-    0
-  );
-}
-
-export function getEndOfMonth() {
-  const currentDate = new Date();
-  const lastDayOfMonth = new Date(
-    currentDate.getFullYear(),
-    currentDate.getMonth() + 1,
-    0,
-    23,
-    59,
-    59,
-    999
-  );
-  return lastDayOfMonth;
-}
+export const getSuccessLink = (req: Request) =>
+  `${req.protocol}://${req.headers.host}/payments/success`;

@@ -19,8 +19,9 @@ class UserRepository {
     await user.save();
 
     const obsuredUser: any = user.toJSON();
+    const tokens = await user.generateAuthToken();
 
-    return obsuredUser;
+    return { ...obsuredUser, ...tokens };
   }
 
   async loginUser({ password, email }: { password: string; email: string }) {
@@ -98,6 +99,12 @@ class UserRepository {
     user.profilePic = `${BUCKET_URL}/${filename}`;
     await user.save();
     return user;
+  }
+
+  async subscribe(id: string) {
+    return await this.updateUser(id, {
+      subStatus: "paid",
+    });
   }
 }
 

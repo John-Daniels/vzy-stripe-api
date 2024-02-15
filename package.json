@@ -31,6 +31,7 @@
     "nodemailer": "^6.8.0",
     "nodemailer-express-handlebars": "^5.0.0",
     "randomatic": "^3.1.1",
+    "stripe": "^14.16.0",
     "twilio": "^4.7.1",
     "validator": "^13.7.0",
     "winston": "^3.10.0",

@@ -1,15 +1,18 @@
 import compression from "compression";
 import cors from "cors";
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 
 // import docs from './docs'
 // route imports
 import { globalErrorhandler } from "./middlewares/globalerrorhandler.middleware";
-import { userRouter } from "./routes";
+import { paymentRouter, userRouter } from "./routes";
 import { IRequest } from "./utils/errors";
 import respond from "./utils/respond";
+import ENV from "./constants/env.constant";
+
+const stripe = require("stripe")(ENV.STRIPE_SECRET_KEY);
 
 // define global... types for middleware
 declare global {
@@ -33,7 +36,15 @@ app.use(
 // if (process.env.NODE_ENV == NODE_ENV.dev)
 app.use(morgan("dev"));
 
-app.use(express.json());
+app.use((req: Request, res: Response, next: NextFunction): void => {
+  if (req.originalUrl === "/payments/webhook") {
+    next();
+  } else {
+    express.json()(req, res, next);
+  }
+});
+
+// app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(compression());
 
@@ -43,6 +54,7 @@ app.get("/", (req, res) => {
 
 // routes
 app.use("/users", userRouter);
+app.use("/payments", paymentRouter);
 
 app.use("*", (req, res) => {
   return respond(res, 404, `endpoint not found!`);

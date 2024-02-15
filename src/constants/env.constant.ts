@@ -24,8 +24,9 @@ interface IENV {
   CLOUDINARY_API_KEY?: string;
   CLOUDINARY_API_SECRET?: string;
 
-  //   GOOGLE OAUTH
-  GOOGLE_CLIENT_ID?: string;
+  // stripe
+  STRIPE_SECRET_KEY?: string;
+  STRIPE_WEBHOOK_SECRET: string;
 }
 
 const ENV: IENV = process.env as unknown as IENV;
