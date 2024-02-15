@@ -52,20 +52,12 @@ class PaymentRepository {
 
     const webhookSecret: string = ENV.STRIPE_WEBHOOK_SECRET;
 
-    if (webhookSecret && ENV.NODE_ENV === NODE_ENV.dev) {
-      try {
-        event = this.stripe.webhooks.constructEvent(
-          req.body,
-          sig,
-          webhookSecret
-        );
-      } catch (err: any) {
-        // On error, log and return the error message
-        console.log(`❌ Error message: ${err.message}`);
-        throw new CustomError(`Webhook Error: ${err.message}`, 400);
-      }
-    } else {
-      event = req.body;
+    try {
+      event = this.stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
+    } catch (err: any) {
+      // On error, log and return the error message
+      console.log(`❌ Error message: ${err.message}`);
+      throw new CustomError(`Webhook Error: ${err.message}`, 400);
     }
 
     // Successfully constructed event
