@@ -1,29 +1,35 @@
 # VZY Test API
 
-## TODO
+## PM Docs
 
-- [x] setup all the middleware
-- [x] create schema
-- [x] create all models
-- [ ] create all endpoints
-- [x] create feature that sends emails to users...
-- [ ] add secondary features such as payments(stripe, paypal or flutterwave)
-- [ ] test the code (with jest)
-- [ ] versioning
-- [ ] release
+> https://documenter.getpostman.com/view/29881481/2sA2r6XPfd
+
+## Features
+
+#### Task 1: Build API Endpoints
+
+- [x] Develop API endpoints to connect with MongoDB Atlas
+- [x] Create an endpoint to register new users and authenticate existing users. Upon successful authentication, generate an access token that expires after one minute. This access token should be used as an authentication header for subsequent requests
+- [x] Implement an endpoint to update user records, accessible by authorized users
+
+#### Task 2: Implement Stripe Webhook
+
+- [x] Set up an endpoint to accept requests from the Stripe webhook.
+- [x] Verify successful payment events from Stripe.
+- [x] Upon receiving payment event, update user status to "paid" in the database.
+
+## Tools Used
+
+- Express
+- MongoDB
+- Stripe
+- Cloudinary
+- Nodemailer
+- Docker
 
 ## For **dev**
 
-Follow the flow in the env.example,
-
-> note: the uri is a incorrect, put the real one for altas... with your username and password.
-
-## Response data model guide (for the frontend guys)
-
-> will be documented when the models are done
-> pay close attention to the docs at postman
-
-## Things to Note
+Replicate .env.example to a .env file
 
 ### Response Object
 
@@ -35,4 +41,18 @@ Follow the flow in the env.example,
     "message": "Successully perform an action",
     "data": {...},
 }
+```
+
+## Startup The Project
+
+## install
+
+```bash
+yarn
+```
+
+## Then run the development server:
+
+```bash
+yarn dev
 ```
